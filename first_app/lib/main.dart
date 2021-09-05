@@ -312,7 +312,7 @@ class FifthPage extends StatelessWidget {
       ),
       body: GridView.count(
         crossAxisCount: 2,
-        children: List.generate(100, (index) {
+        children: List.generate(6, (index) {
           return InkWell(
             onTap: () {
               Navigator.pushNamed(context, '/${index + 1}');
@@ -328,7 +328,7 @@ class FifthPage extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  'Item $index',
+                  'Item ${index + 1}',
                   style: Theme.of(context).textTheme.headline5,
                 ),
               ),
