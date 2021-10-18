@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
     itemList.add(Item("assets/card_back.png", 3));
     itemList.add(Item("assets/card_back.png", 4));
     itemList.add(Item("assets/card_back.png", 5));
-    itemList.add(Item("assets/card_back.png", 8));
+    itemList.add(Item("assets/card_back.png", 6));
     itemList.add(Item("assets/card_back.png", 7));
     itemList.add(Item("assets/card_back.png", 8));
   }

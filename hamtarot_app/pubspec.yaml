@@ -1,0 +1,66 @@
+name: hamtarot_app
+description: A new Flutter project.
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  provider: ^6.0.1
+  curved_navigation_bar: ^1.0.1
+  intl: ^0.17.0
+  google_fonts: ^2.1.0
+  flip_card: ^0.5.0
+  flutter_launcher_icons: ^0.9.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/q1.jpg
+    - assets/Hamtarot.png
+    - assets/card1.jfif
+    - assets/card3.jpg
+    - assets/question.jpg
+    - assets/siamese.jpg
+    - assets/home.jpg  
+    - assets/test.jpg    
+    - assets/book.jpg    
+    - assets/01.png
+    - assets/king.png
+    - assets/queen.png
+    - assets/joker.png
+    - assets/card_back.png
+    - assets/card_back-2.png
+    - assets/seamsee_box.png
+    - assets/H1.png
+    - assets/H2.png
+    - assets/S1.png
+    - assets/S2.png
+    - assets/icon.png
+    - assets/temp1.jpg
+    - assets/temp2.jpg
+    - assets/icon.png
+    - assets/card_back.png
+    - assets/card_front1.png
+    - assets/card_front2.png
+    - assets/card_front3.png
+    - assets/icon.png
+    - assets/banner.png
+    - assets/card_result-1.png
+    - assets/card_result-2.png
+    - assets/card_result-3.png
+
