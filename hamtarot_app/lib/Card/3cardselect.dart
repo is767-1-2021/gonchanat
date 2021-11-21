@@ -1,6 +1,11 @@
+import 'dart:math';
+
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:hamtarot_app/Card/tarot5.dart';
+import 'package:hamtarot_app/Card/3cardoutcome.dart';
+import 'package:hamtarot_app/Controlers/3card.dart';
+import 'package:hamtarot_app/Services/3card.dart';
+import 'package:hamtarot_app/model/3card.dart';
 
 class MyAppCard3 extends StatefulWidget {
   @override
@@ -10,11 +15,18 @@ class MyAppCard3 extends StatefulWidget {
 class _MyAppCard3State extends State<MyAppCard3> {
   late List<Item> itemList;
   late List<Item> selectedList;
+  Services? service;
+  ThreeCardController? controller;
+  List<ThreeCard> threecard = List.empty();
+  int randomIndex = Random().nextInt(3);
 
   @override
   void initState() {
     loadList();
     super.initState();
+
+    service = ThreeCardServices();
+    controller = ThreeCardController(service!);
   }
 
   loadList() {
@@ -25,13 +37,21 @@ class _MyAppCard3State extends State<MyAppCard3> {
     itemList.add(Item("assets/card_back.png", 3));
     itemList.add(Item("assets/card_back.png", 4));
     itemList.add(Item("assets/card_back.png", 5));
-    itemList.add(Item("assets/card_back.png", 8));
+    itemList.add(Item("assets/card_back.png", 6));
     itemList.add(Item("assets/card_back.png", 7));
     itemList.add(Item("assets/card_back.png", 8));
     itemList.add(Item("assets/card_back.png", 9));
     itemList.add(Item("assets/card_back.png", 10));
     itemList.add(Item("assets/card_back.png", 11));
     itemList.add(Item("assets/card_back.png", 12));
+  }
+
+  void getthreecard() async {
+    var newthreecard = await controller!.fectthreecard();
+
+    setState(() {
+      threecard = newthreecard;
+    });
   }
 
   @override
@@ -138,13 +158,37 @@ class _MyAppCard3State extends State<MyAppCard3> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => FlipAnimationDemo()));
-                          });
+                        onPressed: () async {
+                          getthreecard();
+                          setState(() {});
+                          await showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                ThreeCard newthreecard = threecard[randomIndex];
+                                return AlertDialog(
+                                  content: Text('ดูผลการ์ด${newthreecard.id}'),
+                                  contentPadding: EdgeInsets.all(30),
+                                  actions: <Widget>[
+                                    ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    ResultRandom(
+                                                  newthreecard: newthreecard,
+                                                ),
+                                              ));
+                                          /*  Navigator.push(
+                  context,MaterialPageRoute(
+              builder: (context) => CardResult (newcard : newcard),
+           ),*/
+                                        },
+                                        child:
+                                            Center(child: Text('ดูคำทำนาย'))),
+                                  ],
+                                );
+                              });
                         },
                         child: Text('ทำนาย'),
                       ),

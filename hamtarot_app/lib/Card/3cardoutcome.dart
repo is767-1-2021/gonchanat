@@ -2,13 +2,17 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:hamtarot_app/HomePage.dart';
+import 'package:hamtarot_app/model/3card.dart';
 
-class FlipAnimationDemo extends StatefulWidget {
+class ResultRandom extends StatefulWidget {
+  final ThreeCard newthreecard;
+  const ResultRandom({Key? key, required this.newthreecard}) : super(key: key);
+
   @override
-  _FlipAnimationDemoState createState() => _FlipAnimationDemoState();
+  _ResultRandomState createState() => _ResultRandomState();
 }
 
-class _FlipAnimationDemoState extends State<FlipAnimationDemo> {
+class _ResultRandomState extends State<ResultRandom> {
   late double _height;
   late double _width;
 
@@ -65,7 +69,8 @@ class _FlipAnimationDemoState extends State<FlipAnimationDemo> {
                           children: [
                             Container(
                               child: Image(
-                                image: AssetImage('assets/card_back.png'),
+                                image:
+                                    NetworkImage('${widget.newthreecard.img}'),
                                 width: 100.0,
                                 height: 150.0,
                                 //decoration: BoxDecoration(
@@ -86,12 +91,14 @@ class _FlipAnimationDemoState extends State<FlipAnimationDemo> {
                               ),
                             ),
                             Text(
-                              'The Fool',
+                              '${widget.newthreecard.id}',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,
                                   fontWeight: FontWeight.w600),
                             ),
+                            Text(widget.newthreecard.past,
+                                style: TextStyle(fontSize: 16)),
                           ],
                         ),
                       ),

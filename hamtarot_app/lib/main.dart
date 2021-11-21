@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hamtarot_app/Card/card1.dart';
-import 'package:hamtarot_app/Card/taro1.dart';
+import 'package:hamtarot_app/Card/3cardselect.dart';
 import 'package:hamtarot_app/HomePage.dart';
 import 'package:hamtarot_app/Page/Form.dart';
 import 'package:hamtarot_app/Page/form_show.dart';
