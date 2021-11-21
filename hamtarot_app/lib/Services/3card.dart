@@ -10,7 +10,7 @@ class ThreeCardServices extends Services {
   Future<List<ThreeCard>> getthreecard() async {
     QuerySnapshot snapshot = // read DB
         await FirebaseFirestore.instance
-            .collection('ham_threecard')
+            .collection('ham_3card')
             //  .where('id',isGreaterThan: 1) // select data
             .get();
 

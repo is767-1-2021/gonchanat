@@ -1,24 +1,28 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ThreeCard {
-  final String id;
-  final String img;
+  final int id;
   final String past;
+  final String pastcontent;
   final String present;
+  final String presentcontent;
   final String future;
+  final String futurecontent;
 
-  ThreeCard(this.id, this.img, this.past, this.present, this.future);
+  ThreeCard(this.id, this.past, this.pastcontent, this.present,
+      this.presentcontent, this.future, this.futurecontent);
 
   factory ThreeCard.fromJson(
     Map<String, dynamic> json,
   ) {
     return ThreeCard(
-      json['id'] as String,
-      json['img'] as String,
-      json['past'] as String,
-      json['present'] as String,
-      json['future'] as String,
-    );
+        json['id'] as int,
+        json['past'] as String,
+        json['pastcontent'] as String,
+        json['present'] as String,
+        json['presentcontent'] as String,
+        json['future'] as String,
+        json['futurecontent'] as String);
   }
 }
 

@@ -18,7 +18,7 @@ class _MyAppCard3State extends State<MyAppCard3> {
   Services? service;
   ThreeCardController? controller;
   List<ThreeCard> threecard = List.empty();
-  int randomIndex = Random().nextInt(3);
+  int randomIndex = Random().nextInt(2);
 
   @override
   void initState() {
@@ -152,48 +152,38 @@ class _MyAppCard3State extends State<MyAppCard3> {
 
           selectedList.length < 3
               ? Container()
-              : InkWell(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () async {
-                          getthreecard();
-                          setState(() {});
-                          await showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                ThreeCard newthreecard = threecard[randomIndex];
-                                return AlertDialog(
-                                  content: Text('ดูผลการ์ด${newthreecard.id}'),
-                                  contentPadding: EdgeInsets.all(30),
-                                  actions: <Widget>[
-                                    ElevatedButton(
-                                        onPressed: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    ResultRandom(
-                                                  newthreecard: newthreecard,
-                                                ),
-                                              ));
-                                          /*  Navigator.push(
-                  context,MaterialPageRoute(
+              : ElevatedButton(
+                  onPressed: () async {
+                    getthreecard();
+                    await Future.delayed(const Duration(milliseconds: 500));
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          ThreeCard newthreecard = threecard[randomIndex];
+                          return AlertDialog(
+                            content: Text("ตั้งจิตอธิษฐาน"),
+                            contentPadding: EdgeInsets.all(30),
+                            actions: <Widget>[
+                              ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => ResultRandom(
+                                            newthreecard: newthreecard,
+                                          ),
+                                        ));
+                                    /*  Navigator.push(
+              context,MaterialPageRoute(
               builder: (context) => CardResult (newcard : newcard),
            ),*/
-                                        },
-                                        child:
-                                            Center(child: Text('ดูคำทำนาย'))),
-                                  ],
-                                );
-                              });
-                        },
-                        child: Text('ทำนาย'),
-                      ),
-                    ],
-                  ),
+                                  },
+                                  child: Center(child: Text('ดูคำทำนาย'))),
+                            ],
+                          );
+                        });
+                  },
+                  child: Text('ทำนาย'),
                 ),
         ]);
   }

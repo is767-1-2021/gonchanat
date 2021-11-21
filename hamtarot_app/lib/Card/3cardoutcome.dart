@@ -40,77 +40,17 @@ class _ResultRandomState extends State<ResultRandom> {
       body: Column(
         children: [
           Container(
-            padding: EdgeInsets.only(top: 50),
+            padding: EdgeInsets.only(top: 10),
             //width: _width,
-            height: 500,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      'อดีต',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontStyle: FontStyle.italic,
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: 0.0),
-                    ),
-                    Container(
-                      width: 100,
-                      height: 150,
-                      margin: EdgeInsets.only(top: 10),
-                      child: FlipCard(
-                        direction: FlipDirection.HORIZONTAL, // default
-                        front: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Container(
-                              child: Image(
-                                image:
-                                    NetworkImage('${widget.newthreecard.img}'),
-                                width: 100.0,
-                                height: 150.0,
-                                //decoration: BoxDecoration(
-                                //borderRadius: BorderRadius.all(Radius.circular(10)),
-                                //color: Colors.blue.shade400,
-                              ),
-                            ),
-                          ],
-                        ),
-                        back: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
-                                color: Colors.brown[600],
-                              ),
-                            ),
-                            Text(
-                              '${widget.newthreecard.id}',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            Text(widget.newthreecard.past,
-                                style: TextStyle(fontSize: 16)),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Center(
-                      child: Text(
-                        'ปัจจุบัน',
+            child: Column(children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        'อดีต',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 18,
@@ -118,115 +58,171 @@ class _ResultRandomState extends State<ResultRandom> {
                             fontWeight: FontWeight.w600,
                             letterSpacing: 0.0),
                       ),
-                    ),
-                    Container(
-                      width: 100,
-                      height: 150,
-                      margin: EdgeInsets.only(top: 10),
-                      child: FlipCard(
-                        direction: FlipDirection.HORIZONTAL, // default
-                        front: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Container(
-                              child: Image(
-                                image: AssetImage('assets/card_back.png'),
-                                width: 100.0,
-                                height: 150.0,
-                                //decoration: BoxDecoration(
-                                //borderRadius: BorderRadius.all(Radius.circular(10)),
-                                //color: Colors.blue.shade400,
+                      Container(
+                        width: 180,
+                        height: 225,
+                        margin: EdgeInsets.only(top: 10),
+                        child: FlipCard(
+                          direction: FlipDirection.HORIZONTAL, // default
+                          front: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Container(
+                                child: Image(
+                                  image: NetworkImage(
+                                      '${widget.newthreecard.past}'),
+                                  width: 180.0,
+                                  height: 225.0,
+                                  //decoration: BoxDecoration(
+                                  //borderRadius: BorderRadius.all(Radius.circular(10)),
+                                  //color: Colors.blue.shade400,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        back: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
-                                color: Colors.brown[600],
+                            ],
+                          ),
+                          back: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  color: Colors.brown[600],
+                                ),
                               ),
-                            ),
-                            Center(
-                              child: Text(
-                                'Lovers',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text(
-                      'อนาคต',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontStyle: FontStyle.italic,
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: 0.0),
-                    ),
-                    Container(
-                      width: 100,
-                      height: 150,
-                      margin: EdgeInsets.only(top: 10),
-                      child: FlipCard(
-                        direction: FlipDirection.HORIZONTAL, // default
-                        front: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Container(
-                              child: Image(
-                                image: AssetImage('assets/card_back.png'),
-                                width: 100.0,
-                                height: 150.0,
-                                //decoration: BoxDecoration(
-                                //borderRadius: BorderRadius.all(Radius.circular(10)),
-                                //color: Colors.blue.shade400,
-                              ),
-                            ),
-                          ],
-                        ),
-                        back: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
-                                color: Colors.brown[600],
-                              ),
-                            ),
-                            Center(
-                              child: Text(
-                                'The Sun',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ],
+                              // Text(
+                              //   '${widget.newthreecard.}',
+                              //   style: TextStyle(
+                              //       color: Colors.white,
+                              //       fontSize: 20,
+                              //       fontWeight: FontWeight.w600),
+                              // ),
+                              Text(widget.newthreecard.pastcontent,
+                                  style: TextStyle(
+                                      fontSize: 16, color: Colors.white)),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Center(
+                        child: Text(
+                          'ปัจจุบัน',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 0.0),
+                        ),
+                      ),
+                      Container(
+                        width: 180.0,
+                        height: 225.0,
+                        margin: EdgeInsets.only(top: 10),
+                        child: FlipCard(
+                          direction: FlipDirection.HORIZONTAL, // default
+                          front: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Container(
+                                child: Image(
+                                  image: NetworkImage(
+                                      '${widget.newthreecard.present}'),
+                                  width: 180.0,
+                                  height: 225.0,
+                                  //decoration: BoxDecoration(
+                                  //borderRadius: BorderRadius.all(Radius.circular(10)),
+                                  //color: Colors.blue.shade400,
+                                ),
+                              ),
+                            ],
+                          ),
+                          back: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  color: Colors.brown[600],
+                                ),
+                              ),
+                              Center(
+                                child: Text(
+                                  widget.newthreecard.presentcontent,
+                                  style: TextStyle(
+                                      fontSize: 16, color: Colors.white),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ]),
+          ),
+          Column(
+            children: [
+              Text(
+                'อนาคต',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: 0.0),
+              ),
+              Container(
+                width: 180,
+                height: 225,
+                margin: EdgeInsets.only(top: 10),
+                child: FlipCard(
+                  direction: FlipDirection.HORIZONTAL, // default
+                  front: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                        child: Image(
+                          image: NetworkImage('${widget.newthreecard.future}'),
+                          width: 180.0,
+                          height: 225.0,
+                          //decoration: BoxDecoration(
+                          //borderRadius: BorderRadius.all(Radius.circular(10)),
+                          //color: Colors.blue.shade400,
+                        ),
+                      ),
+                    ],
+                  ),
+                  back: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          color: Colors.brown[600],
+                        ),
+                      ),
+                      Center(
+                        child: Text(
+                          widget.newthreecard.futurecontent,
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ElevatedButton(
                 onPressed: () {
