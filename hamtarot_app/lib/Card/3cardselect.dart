@@ -1,11 +1,15 @@
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:hamtarot_app/Card/3cardoutcome.dart';
 import 'package:hamtarot_app/Controlers/3card.dart';
+import 'package:hamtarot_app/Login/model.dart';
 import 'package:hamtarot_app/Services/3card.dart';
 import 'package:hamtarot_app/model/3card.dart';
+import 'package:hamtarot_app/model/DataFormModel.dart';
+import 'package:provider/provider.dart';
 
 class MyAppCard3 extends StatefulWidget {
   @override
@@ -155,7 +159,7 @@ class _MyAppCard3State extends State<MyAppCard3> {
               : ElevatedButton(
                   onPressed: () async {
                     getthreecard();
-                    await Future.delayed(const Duration(milliseconds: 500));
+                    await Future.delayed(const Duration(milliseconds: 700));
                     showDialog(
                         context: context,
                         builder: (BuildContext context) {
@@ -164,21 +168,31 @@ class _MyAppCard3State extends State<MyAppCard3> {
                             content: Text("ตั้งจิตอธิษฐาน"),
                             contentPadding: EdgeInsets.all(30),
                             actions: <Widget>[
-                              ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => ResultRandom(
-                                            newthreecard: newthreecard,
-                                          ),
-                                        ));
-                                    /*  Navigator.push(
-              context,MaterialPageRoute(
-              builder: (context) => CardResult (newcard : newcard),
-           ),*/
-                                  },
-                                  child: Center(child: Text('ดูคำทำนาย'))),
+                              Consumer<Loginmodel>(
+                                  builder: (context, form, child) {
+                                return ElevatedButton(
+                                    onPressed: () async {
+                                      await FirebaseFirestore.instance
+                                          .collection('ham_history')
+                                          .add({
+                                        'email': form.email,
+                                        'result': newthreecard.outcome,
+                                        'timeStamp': Timestamp.now()
+                                      });
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => ResultRandom(
+                                              newthreecard: newthreecard,
+                                            ),
+                                          ));
+                                      /*  Navigator.push(
+                                            context,MaterialPageRoute(
+                                            builder: (context) => CardResult (newcard : newcard),
+                                         ),*/
+                                    },
+                                    child: Center(child: Text('ดูคำทำนาย')));
+                              }),
                             ],
                           );
                         });

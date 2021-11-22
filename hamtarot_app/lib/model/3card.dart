@@ -8,9 +8,10 @@ class ThreeCard {
   final String presentcontent;
   final String future;
   final String futurecontent;
+  final String outcome;
 
   ThreeCard(this.id, this.past, this.pastcontent, this.present,
-      this.presentcontent, this.future, this.futurecontent);
+      this.presentcontent, this.future, this.futurecontent, this.outcome);
 
   factory ThreeCard.fromJson(
     Map<String, dynamic> json,
@@ -22,7 +23,8 @@ class ThreeCard {
         json['present'] as String,
         json['presentcontent'] as String,
         json['future'] as String,
-        json['futurecontent'] as String);
+        json['futurecontent'] as String,
+        json['outcome'] as String);
   }
 }
 
